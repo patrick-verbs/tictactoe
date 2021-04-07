@@ -45,23 +45,34 @@ Also forthcoming...
 
 
 ---
+<br>
+
 ### Failing/Untested
 | _Describe:_            | _new Board()_ |
 |------------------------|--------------|
-| __Test:__              | It should create object, which contains an array of 9 empty strings, representing the 9 empty squares at the start of a game. |
-| __Code:__              | ```const newGame = new Board();```<br>```newGame.spaces;``` |
-| __Expected Output:__   | ```[, , , , , , , , ]``` |
+| __Test:__              | It should create a game board object, which contains an array of 9 empty strings, representing the 9 empty squares at the start of a game. |
+| __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces;``` |
+| __Expected Output:__   | ```[, , , , , , , , , ]``` |
 
+<br>
 
 | _Describe:_            | _Board.prototype.addMark_ |
 |------------------------|--------------|
 | __Test:__              | It should add an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
-| __Code:__              | ```const newGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```newGame.addMark(playerMark, targetSpace);```<br>```console.log(newGame.spaces) |
-| __Expected Output:__   | ```[, , , "X", , , , , ]``` |
+| __Code:__              | ```const thisGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);```<br>```console.log(thisGame.spaces);``` |
+| __Expected Output:__   | ```[, , , , "X", , , , , ]``` |
+|                        ||
+|                        ||
+|                        ||
+| __Test:__              | It should prevent a mark from being added to a targeted space if that space is not empty.  |
+| __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces[4] = "O";```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);``` |
+| __Expected Output:__   | ```"Sorry, Player X! This space is taken!"```<br>```[, , , , "O", , , , , ]``` |
 
 
 
 ---
+<br>
+
 ### Template
 | _Describe:_            | _testTemplate()_ |
 |------------------------|--------------|
@@ -74,6 +85,8 @@ Also forthcoming...
 | __Test:__              | It should also do this other thing... |
 | __Code:__              | ```testTemplate("Another!");``` |
 | __Expected Output:__   | ```"And another thing!"``` |
+
+<br>
 
 # <a name="License"></a>License
 ###### _[TicTacToe](https://github.com/patrick-verbs/tictactoe) > License_
