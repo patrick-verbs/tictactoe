@@ -16,17 +16,15 @@ function Board() {
 
 // 
 Board.prototype.addMark = function(mark, boardSpace) {
-  targetSpace = this.spaces[boardSpace];
-  if (targetSpace === "") { // If the player's chosen space is empty...
-    targetSpace = mark; // ...place their mark
+  // const targetSpace = this.spaces[boardSpace];
+  if (this.spaces[boardSpace] === "") { // If the player's chosen space is empty...
+    this.spaces[boardSpace] = mark; // ...place their mark
   } else { // Otherwise, tell them the space is taken
     console.log("Sorry, Player " + mark + "! This space is taken!")
   }
   console.log("Current board state: " + this.spaces) // Print the current board (an ugly array for now)
 };
 
-// Instantiate a new board to begin a game
-const thisGame = new Board();
 
 
 
@@ -35,3 +33,10 @@ const thisGame = new Board();
 // };
 
 
+// Current console testing commands
+// Instantiate a new board to begin a game
+const thisGame = new Board();
+let playerMark = "X";
+let targetSpace = 4;
+console.log("Starting board state: " + thisGame.spaces)
+thisGame.addMark(playerMark, targetSpace);

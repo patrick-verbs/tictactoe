@@ -50,6 +50,14 @@ Also forthcoming...
 
 <br>
 
+| _Describe:_            | _Board.prototype.addMark_ |
+|------------------------|--------------|
+| __Test:__              | It should add an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
+| __Code:__              | ```const thisGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);```<br>```console.log(thisGame.spaces);``` |
+| __Expected Output:__   | ```Current board state: ["", "", "", "", "X", "", "", "", "", ""]``` |
+|                        ||
+|                        ||
+|                        ||
 
 
 ---
