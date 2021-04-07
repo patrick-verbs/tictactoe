@@ -42,31 +42,31 @@ Also forthcoming...
 ## <a name="Specs"></a>Test Specs
 ###### _[TicTacToe](https://github.com/patrick-verbs/tictactoe) > [About](#About) > Specs_
 ### Passing
+| _Describe:_            | _new Board()_ |
+|------------------------|--------------|
+| __Test:__              | It should create a game board object, which contains an array of 9 empty strings, representing the 9 empty squares at the start of a game. |
+| __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces;``` |
+| __Expected Output:__   | ```["", "", "", "", "", "", "", "", "", ""]``` |
+
+<br>
+
 
 
 ---
 <br>
 
 ### Failing/Untested
-| _Describe:_            | _new Board()_ |
-|------------------------|--------------|
-| __Test:__              | It should create a game board object, which contains an array of 9 empty strings, representing the 9 empty squares at the start of a game. |
-| __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces;``` |
-| __Expected Output:__   | ```[, , , , , , , , , ]``` |
-
-<br>
-
 | _Describe:_            | _Board.prototype.addMark_ |
 |------------------------|--------------|
 | __Test:__              | It should add an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
 | __Code:__              | ```const thisGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);```<br>```console.log(thisGame.spaces);``` |
-| __Expected Output:__   | ```[, , , , "X", , , , , ]``` |
+| __Expected Output:__   | ```Current board state: ["", "", "", "", "X", "", "", "", "", ""]``` |
 |                        ||
 |                        ||
 |                        ||
 | __Test:__              | It should prevent a mark from being added to a targeted space if that space is not empty.  |
 | __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces[4] = "O";```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);``` |
-| __Expected Output:__   | ```"Sorry, Player X! This space is taken!"```<br>```[, , , , "O", , , , , ]``` |
+| __Expected Output:__   | ```Sorry, Player X! This space is taken!```<br>```Current board state: [, , , , "O", , , , , ]``` |
 
 
 

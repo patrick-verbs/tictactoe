@@ -1,21 +1,37 @@
 // Tic-Tac-Toe
-// Start with a game board object
+// Game board object
 function Board() {
-  this.spaces = [];//  "Space 1"     "Space 2"
-  this.currentId = 0;// 1             2
+  this.spaces = [
+    "",
+    "",// Spaces are always empty at the start of a game
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ];
 }
-function Player() {
 
-}
+// 
+Board.prototype.addMark = function(mark, boardSpace) {
+  targetSpace = this.spaces[boardSpace];
+  if (targetSpace === "") { // If the player's chosen space is empty...
+    targetSpace = mark; // ...place their mark
+  } else { // Otherwise, tell them the space is taken
+    console.log("Sorry, Player " + mark + "! This space is taken!")
+  }
+  console.log("Current board state: " + this.spaces) // Print the current board (an ugly array for now)
+};
+
+// Instantiate a new board to begin a game
+const thisGame = new Board();
 
 
-// Business Logic for AddressBook ---------
-function AddressBook() {
-  this.contacts = {};// "Fred"  "Jill"
-  this.currentId = 0;// 1       2
-}
 
-let newBoard = {
-  space: "",// 1-9 (or 0-8 for array indexes)
-  spaceValue: "" // empty or "X" or "O"
-}
+// function Player() {
+
+// };
+
+
