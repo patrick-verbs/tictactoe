@@ -46,6 +46,19 @@ Also forthcoming...
 
 ---
 ### Failing/Untested
+| _Describe:_            | _new Board()_ |
+|------------------------|--------------|
+| __Test:__              | It should create object, which contains an array of 9 empty strings, representing the 9 empty squares at the start of a game. |
+| __Code:__              | ```const newGame = new Board();```<br>```newGame.spaces;``` |
+| __Expected Output:__   | ```[, , , , , , , , ]``` |
+
+
+| _Describe:_            | _Board.prototype.addMark_ |
+|------------------------|--------------|
+| __Test:__              | It should add an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
+| __Code:__              | ```const newGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```newGame.addMark(playerMark, targetSpace);```<br>```console.log(newGame.spaces) |
+| __Expected Output:__   | ```[, , , "X", , , , , ]``` |
+
 
 
 ---
@@ -53,14 +66,14 @@ Also forthcoming...
 | _Describe:_            | _testTemplate()_ |
 |------------------------|--------------|
 | __Test:__              | It should do the thing! |
-| __Code:__              | testTemplate("Do the thing!"); |
-| __Expected Output:__   | "So here's the thing..." |
+| __Code:__              | ```testTemplate("Do the thing!");``` |
+| __Expected Output:__   | ```"So here's the thing..."``` |
 |                        ||
 |                        ||
 |                        ||
 | __Test:__              | It should also do this other thing... |
-| __Code:__              | testTemplate("Another!"); |
-| __Expected Output:__   | "And another thing!" |
+| __Code:__              | ```testTemplate("Another!");``` |
+| __Expected Output:__   | ```"And another thing!"``` |
 
 # <a name="License"></a>License
 ###### _[TicTacToe](https://github.com/patrick-verbs/tictactoe) > License_
