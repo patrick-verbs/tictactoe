@@ -66,7 +66,7 @@ Also forthcoming...
 ### Failing/Untested
 | _Describe:_            | _Board.prototype.addMark_ |
 |------------------------|--------------|
-| __Test:__              | It should add an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
+| __Test:__              | It adds an "X" character to the ```spaces``` property (an array) at the specified index in that array.  |
 | __Code:__              | ```const thisGame = new Board();```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);```<br>```console.log(thisGame.spaces);``` |
 | __Expected Output:__   | ```Current board state: ["", "", "", "", "X", "", "", "", "", ""]``` |
 |                        ||
@@ -76,6 +76,18 @@ Also forthcoming...
 | __Code:__              | ```const thisGame = new Board();```<br>```thisGame.spaces[4] = "O";```<br>```let playerMark = "X";```<br>```let targetSpace = 4;```<br>```thisGame.addMark(playerMark, targetSpace);``` |
 | __Expected Output:__   | ```Sorry, Player X! This space is taken!```<br>```Current board state: [, , , , "O", , , , , ]``` |
 
+| _Describe:_            | _Player.prototype.addMark_ |
+|------------------------|--------------|
+| __Test:__              | It should switch from Player 1 ("X") to Player 2 ("O") after a mark is added. |
+| __Code:__              | ```testTemplate("Do the thing!");``` |
+| __Expected Output:__   | ```"So here's the thing..."``` |
+|                        ||
+|                        ||
+|                        ||
+|------------------------|--------------|
+| __Test:__              | It should check if the mark won the game, or led to a draw. |
+| __Code:__              | ```testTemplate("Do the thing!");``` |
+| __Expected Output:__   | ```"So here's the thing..."``` |
 
 
 ---
