@@ -42,7 +42,7 @@ Player.prototype.addMark = function(space) {
       return;
     } else if (result === "draw") {
       console.log("Cat's game!")
-      return
+      return;
     };
     switchTurn(player);
   } else { // If the space is taken, don't place the player's mark, check results, or advance to the next player's turn
