@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+h1 {
+  text-align: center;
+  padding-top: 45px;
+}
 
 body {
   margin: 0;
@@ -17,7 +21,7 @@ body {
   align-items: center;
   flex-direction: column; 
 }
-#gameboard {
+#gameBoard {
   max-height: 25vh;
   height: 60vh;
   width: 60vw;
@@ -32,9 +36,10 @@ body {
   justify-content: center;
   align-items: center;
   color:  rgba(7, 65, 255, 0.911);
-  text-shadow: 3px 3px turquoise;
+  text-shadow: 2px 2px rgb(2, 255, 99);
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   border: 3px solid red;
+  font-size: 200px;
 }
 #b0, #b1, #b2 {
   border-top: none;

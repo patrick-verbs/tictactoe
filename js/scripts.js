@@ -126,8 +126,25 @@ function renderBoardConsole(spaces) {
 
 
 $(document).ready(function() {
+  // do the stuff
+  // get the id (e.g. "b0")
+  // remove the "b"
+  // update the screen based on the board array at e.g. "0"
+  // let theid = $(someElement).attr('id'); Solution from https://forum.jquery.com/topic/get-id-from-element-in-string
 
-  // stuff
+  // function attachContactListeners() {
+  //   $("ul#contacts").on("click", "li", function() {
+  //     showContact(this.id);     // <--- This is new!
+  //   });
+  // };
+  $("#gameBoard").on("click", ".box", function() {
+    let originalId = this.id; // id === "b0"
+    let newId = parseInt(originalId.replace('b', ''));
+    currentPlayer.addMark(newId)
+    $("#" + originalId).html(currentGame.spaces[newId]);
+  });
+    //event.preventDefault();
+  //$("#b1").html("X");
 
 });
 
@@ -138,12 +155,12 @@ $(document).ready(function() {
 console.log("Starting board state: " + currentGame.spaces);
 
 // An X's win game:
-currentPlayer.addMark(4);
-currentPlayer.addMark(0);
-currentPlayer.addMark(2);
-currentPlayer.addMark(3);
-currentPlayer.addMark(6);
-currentPlayer.addMark(0);
+// currentPlayer.addMark(4);
+// currentPlayer.addMark(0);
+// currentPlayer.addMark(2);
+// currentPlayer.addMark(3);
+// currentPlayer.addMark(6);
+// currentPlayer.addMark(0);
 
 // A cat's game:
 // currentPlayer.addMark(0);
