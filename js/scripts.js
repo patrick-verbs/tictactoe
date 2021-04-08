@@ -11,6 +11,8 @@ function Board() {
     " "
   ];
   this.active = true;
+  this.player1Wins = 0;
+  this.player2Wins = 0;
 };
 
 function Player(playerNum, playerMark) {
@@ -128,11 +130,9 @@ function renderBoardConsole(spaces) {
 
 $(document).ready(function() {
   $("#gameBoard").on("click", ".box", function() {
-    let originalId = this.id; // id === e.g. "b0"
-    let newId = parseInt(originalId.replace('b', ''));
     let resultDiv = $("#result");
     let resultMessage = $(".result");
-    let currentMark = currentPlayer.addMark(newId);
+    let currentMark = currentPlayer.addMark(parseInt((this.id).replace('b', '')));
     
     if (currentMark === "CATS!!!" || currentMark === `Player ${currentPlayer.playerNum} wins!`) {
       resultMessage.slideDown(1000);
