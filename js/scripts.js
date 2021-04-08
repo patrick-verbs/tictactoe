@@ -56,6 +56,21 @@ function switchTurn(playerNum) {
   };
 };
 
+function refreshBoard() {
+  for (let i = 0; i < currentGame.spaces.length; i++) {
+    $("#b" + i).html(currentGame.spaces[i]);
+  }
+}
+
+function clearBoard() {
+  const oldSpaces = currentGame.spaces;
+  let newSpaces = oldSpaces;
+  for (let i = 0; i < oldSpaces.length; i++) {
+    newSpaces[i] = " ";
+  };
+  currentGame.spaces = newSpaces;
+};
+
 function resultCheck(player) {
   console.log("Checking results...")
   const boardState = currentGame.spaces;
@@ -118,16 +133,19 @@ $(document).ready(function() {
     let resultDiv = $("#result");
     let resultMessage = $(".result");
     let currentMark = currentPlayer.addMark(newId);
+    
     if (currentMark === "CATS!!!" || currentMark === `Player ${currentPlayer.playerNum} wins!`) {
       resultMessage.slideDown(1000);
       resultDiv.html(currentMark);
     }
-    $("#" + originalId).html(currentGame.spaces[newId]);
+    refreshBoard();
   });
   $("#reset").click(function(event) {
     event.preventDefault();
     $(".result").slideUp();
     clearBoard();
+    refreshBoard();
+    currentGame.active = true;
   });
 });
 

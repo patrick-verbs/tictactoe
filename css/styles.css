@@ -4,6 +4,10 @@
 h1 {
   text-align: center;
   padding-top: 45px;
+  color:  rgba(7, 65, 255, 0.911);
+  text-shadow: 2px 2px rgb(2, 255, 99);
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 125px;
 }
 
 body {
@@ -15,7 +19,6 @@ body {
 }
 .container {
   padding: 25px;
-  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,8 +30,8 @@ body {
   width: 60vw;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 45px;
 }
+
 .box {
   height: 26vh;
   width: 20vw;
@@ -81,6 +84,7 @@ body {
 #reset:hover {
   padding: 30px 30px;
   background: linear-gradient(to left, rgb(95, 215, 255), cyan, rgb(60, 60, 253));
+  color: yellowgreen;
 }
 #reset:active {
   background: red;
