@@ -56,8 +56,8 @@ body {
 .result {
   display: none;
   background: cover;
-  height: 100vh;
-  width: 100vw;
+  height: 50vh;
+  width: 50vw;
   background: navy;
   opacity: 0.9;
   color: rgb(0, 253, 148);
@@ -65,4 +65,23 @@ body {
   text-align: center;
   padding-top: 45px;
   text-shadow: 3px 4px red;
+  
+}
+#reset {
+  padding: 25px 25px;
+  border-radius: 50%;
+  font-size: 25px;
+  display: flex;
+  margin-left: 350px;
+  margin-top: 25px;
+  background: linear-gradient(to right, rgb(95, 215, 255), cyan, rgb(60, 60, 253));
+  color: red;
+  text-shadow: 1.5px 1.5px rgb(0, 255, 149);
+}
+#reset:hover {
+  padding: 30px 30px;
+  background: linear-gradient(to left, rgb(95, 215, 255), cyan, rgb(60, 60, 253));
+}
+#reset:active {
+  background: red;
 }
