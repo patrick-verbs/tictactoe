@@ -53,3 +53,16 @@ body {
 #b6, #b7, #b8 {
   border-bottom: none;
 }
+.result {
+  display: none;
+  background: cover;
+  height: 100vh;
+  width: 100vw;
+  background: navy;
+  opacity: 0.9;
+  color: rgb(0, 253, 148);
+  font-size: 100px;
+  text-align: center;
+  padding-top: 45px;
+  text-shadow: 3px 4px red;
+}

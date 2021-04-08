@@ -12,6 +12,7 @@ function Board() {
     " ",
     " "
   ];
+  this.active = true;
 };
 
 function Player(playerNum, playerMark) {
@@ -30,24 +31,27 @@ const player2 = new Player(2, "O");
 let currentPlayer = player1;
 
 Player.prototype.addMark = function(space) {
-  const board = currentGame.spaces;
-  const player = this.playerNum;
-  if (board[space] === " ") { // If the player's chosen space is blank...
-    board[space] = this.playerMark; // ...place their mark
-    console.log("Player " + player + " made a mark");
-    console.log(renderBoardConsole(currentGame.spaces));
-    let result = resultCheck(player);
-    if (result === "win") {
-      console.log("Player " + player + " wins!");
-      return;
-    } else if (result === "draw") {
-      console.log("Cat's game!")
-      return;
+  if (currentGame.active === true) {
+    const board = currentGame.spaces;
+    const player = this.playerNum;
+    if (board[space] === " ") { // If the player's chosen space is blank...
+      board[space] = this.playerMark; // ...place their mark
+      console.log("Player " + player + " made a mark");
+      console.log(renderBoardConsole(currentGame.spaces));
+      let result = resultCheck(player);
+      if (result === "win") {
+        console.log("Player " + player + " wins!");
+        return `Player ${player} wins!`;
+        // return `Player ${player} wins!`;
+      } else if (result === "draw") {
+        console.log("Cat's game!")
+        return;
+      };
+      switchTurn(player);
+    } else { // If the space is taken, don't place the player's mark, check results, or advance to the next player's turn
+      console.log("Sorry! This space is taken!");
     };
-    switchTurn(player);
-  } else { // If the space is taken, don't place the player's mark, check results, or advance to the next player's turn
-    console.log("Sorry! This space is taken!");
-  };
+  }
 };
 
 function switchTurn(playerNum) {
@@ -88,6 +92,7 @@ function resultCheck(player) {
       && boardState[streak[0]] === boardState[streak[2]]
       ) {
       console.log(`Winning spaces: ${streak[0]}, ${streak[1]}, ${streak[2]}`);
+      currentGame.active = false;
       return "win";
     };
   };
@@ -100,6 +105,7 @@ function resultCheck(player) {
     }
   }
   if (catsGame === true) { // If catsGame wasn't set to false in the loop,
+    currentGame.active = false;
     return "draw"; // then we know it's a draw.
   }
 };
@@ -138,37 +144,14 @@ $(document).ready(function() {
   //   });
   // };
   $("#gameBoard").on("click", ".box", function() {
-    let originalId = this.id; // id === "b0"
+    let originalId = this.id; // id === e.g. "b0"
     let newId = parseInt(originalId.replace('b', ''));
-    currentPlayer.addMark(newId)
+    let resultDiv = $(".result");
+    let currentMark = currentPlayer.addMark(newId);
+    if (currentMark === `Player ${currentPlayer.playerNum} wins!`) {
+      resultDiv.slideDown(1000);
+      resultDiv.html(currentMark);
+    }
     $("#" + originalId).html(currentGame.spaces[newId]);
   });
-    //event.preventDefault();
-  //$("#b1").html("X");
-
 });
-
-
-// Console testing commands
-
-// Show the empty board before any commands:
-console.log("Starting board state: " + currentGame.spaces);
-
-// An X's win game:
-// currentPlayer.addMark(4);
-// currentPlayer.addMark(0);
-// currentPlayer.addMark(2);
-// currentPlayer.addMark(3);
-// currentPlayer.addMark(6);
-// currentPlayer.addMark(0);
-
-// A cat's game:
-// currentPlayer.addMark(0);
-// currentPlayer.addMark(4);
-// currentPlayer.addMark(6);
-// currentPlayer.addMark(3);
-// currentPlayer.addMark(5);
-// currentPlayer.addMark(1);
-// currentPlayer.addMark(7);
-// currentPlayer.addMark(8);
-// currentPlayer.addMark(2);
