@@ -45,7 +45,7 @@ Player.prototype.addMark = function(space) {
         // return `Player ${player} wins!`;
       } else if (result === "draw") {
         console.log("Cat's game!")
-        return;
+        return "CATS!!!";
       };
       switchTurn(player);
     } else { // If the space is taken, don't place the player's mark, check results, or advance to the next player's turn
@@ -148,7 +148,7 @@ $(document).ready(function() {
     let newId = parseInt(originalId.replace('b', ''));
     let resultDiv = $(".result");
     let currentMark = currentPlayer.addMark(newId);
-    if (currentMark === `Player ${currentPlayer.playerNum} wins!`) {
+    if (currentMark === "CATS!!!" || currentMark === `Player ${currentPlayer.playerNum} wins!`) {
       resultDiv.slideDown(1000);
       resultDiv.html(currentMark);
     }
